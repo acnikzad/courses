@@ -3,6 +3,6 @@
   id: student.id,
   first_name: student.first_name,
   last_name: student.last_name,
-  course_id: student.student.id
+  course_id: student.course_id
   }
 end

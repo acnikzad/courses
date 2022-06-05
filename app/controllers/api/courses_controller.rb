@@ -3,6 +3,7 @@ class Api::CoursesController < ApplicationController
 
   def index
     @courses = Course.includes(:teacher, :students).all
+    render
   end 
 
   def show

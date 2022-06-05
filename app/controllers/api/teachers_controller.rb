@@ -3,6 +3,7 @@ class Api::TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
+    render
   end
 
   def show

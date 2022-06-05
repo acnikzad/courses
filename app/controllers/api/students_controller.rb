@@ -2,7 +2,8 @@ class Api::StudentsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    @students = Student.all
+    @students = Student.includes(:courses).all
+    render
   end
 
   def show
@@ -18,7 +19,7 @@ class Api::StudentsController < ApplicationController
       course_id: params[:course_id]
       )
     @student.save
-    render:show
+    render :show
   end
 
   def update
