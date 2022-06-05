@@ -1,7 +1,8 @@
 class Api::CoursesController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
-    @courses = Course.all
+    @courses = Course.includes(:teacher, :students).all
   end 
 
   def show
@@ -11,10 +12,10 @@ class Api::CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create (
+    @course = Course.create(
       name: params[:name],
-      teacher_id: params [:teacher_id],
-      student_id: params [:student_id]
+      teacher_id: params[:teacher_id],
+      student_id: params[:student_id]
       )
     @course.save
     render :show

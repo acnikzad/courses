@@ -1,4 +1,5 @@
 class Api::TeachersController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
     @teachers = Teacher.all
@@ -11,13 +12,13 @@ class Api::TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.create (
+    @teacher = Teacher.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
       course_id: params[:course_id]
       )
     @teacher.save
-    render:show
+    render :show
   end
 
   def update

@@ -1,5 +1,6 @@
 class Api::StudentsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
+  
   def index
     @students = Student.all
   end
@@ -11,7 +12,7 @@ class Api::StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create (
+    @student = Student.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
       course_id: params[:course_id]
