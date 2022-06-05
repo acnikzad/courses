@@ -6,10 +6,8 @@ class Api::TeachersController < ApplicationController
 
   def show
     the_id = params[:id]
-    first_name: params[:first_name]
-    last_name: params[:last_name]
-    course_id: params[:course_id]
-    render jason: @teacher
+    @teacher = Teacher.find_by(id: the_id)
+    render json: @teacher
   end
 
   def create
