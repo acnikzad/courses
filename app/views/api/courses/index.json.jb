@@ -1,0 +1,8 @@
+@courses.map do |course|
+  {
+  id: course.id,
+  name: course.name,
+  teacher_id: course.teacher.id,
+  student_id: course.student.id
+  }
+end
