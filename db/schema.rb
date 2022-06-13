@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_05_190041) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_12_205806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_courses", force: :cascade do |t|
     t.integer "student_id"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,15 +30,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_190041) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teacher_courses", force: :cascade do |t|
+    t.integer "teacher_id"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id", "course_id"], name: "index_teacher_courses_on_teacher_id_and_course_id", unique: true
   end
 
   create_table "teachers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,5 @@
 {
   id: @course.id,
   name: @course.name,
-  teacher_id: @course.teacher_id,
-  student_id: @course.student_id
+
 }

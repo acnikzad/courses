@@ -2,5 +2,4 @@
   id: @teacher.id,
   first_name: @teacher.first_name,
   last_name: @teacher.last_name,
-  course_id: @teacher.course_id
 }

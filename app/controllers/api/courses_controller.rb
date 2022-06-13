@@ -2,14 +2,14 @@ class Api::CoursesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @courses = Course.includes(:teacher, :students).all
-    render
+    @courses = Course.all
+    render json: @courses
   end 
 
   def show
     the_id = params[:id]
     @course = Course.find_by(id: the_id)
-    render json: @course
+    render json: @course 
   end
 
   def create

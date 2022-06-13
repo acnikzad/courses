@@ -2,8 +2,8 @@ class Api::StudentsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    @students = Student.includes(:courses).all
-    render
+    @students = Student.all
+    render json: @students
   end
 
   def show

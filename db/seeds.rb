@@ -35,3 +35,16 @@ teacher = Teacher.all
     "course_id" => rand(0..15)})
   end
 puts Teacher.all 
+
+
+# Student.all.each do |student|
+#   Course.first(3).each do |course|
+#     student.courses << course
+#   end
+# end
+
+# Student.all.each do |student|
+#   Course.first(3).each do |course|
+#     student.courses << course
+#   end
+# end

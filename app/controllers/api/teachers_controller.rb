@@ -3,7 +3,7 @@ class Api::TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
-    render
+    render json: @teachers
   end
 
   def show
