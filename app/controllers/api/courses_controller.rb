@@ -14,9 +14,7 @@ class Api::CoursesController < ApplicationController
 
   def create
     @course = Course.create(
-      name: params[:name],
-      teacher_id: params[:teacher_id],
-      student_id: params[:student_id]
+      name: params[:name]
       )
     @course.save
     render :show
@@ -26,8 +24,6 @@ class Api::CoursesController < ApplicationController
     the_id = params[:id]
     @course = Course.find_by(id: the_id)
     @course.name = params[:name] || @course.name
-    @course.teacher_id = params[:teacher_id] || @course.teacher_id
-    @course.student_id = params[:student_id] || @course.student_id
 
     @course.save
     render :show

@@ -16,7 +16,6 @@ class Api::TeachersController < ApplicationController
     @teacher = Teacher.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
-      course_id: params[:course_id]
       )
     @teacher.save
     render :show
@@ -27,7 +26,6 @@ class Api::TeachersController < ApplicationController
     @teacher = Teacher.find_by(id: the_id)
     @teacher.first_name = params[:first_name] || @teacher.first_name
     @teacher.last_name = params[:last_name] || @teacher.last_name
-    @teacher.course_id = params[:course_id] || @teacher.course_id
 
     @teacher.save
     render:show
