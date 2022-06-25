@@ -22,18 +22,18 @@ l_names = ["Donnelly", "Elrod", "Foust", "Griswold", "Simmons", "Milam", "Lance"
 #   end
 # puts Student.all 
 
-teacher = Teacher.all
+# teacher = Teacher.all
 
-30.times do
-  random_f_name = f_names[rand(0..f_names.length)]
-  random_l_name = l_names[rand(0..l_names.length)]
-  @teacher = Teacher.create({
-    "first_name" => random_f_name,
-    "last_name" => random_l_name})
-  puts random_f_name
-  puts random_l_name
-  end
-puts Teacher.all 
+# 30.times do
+#   random_f_name = f_names[rand(0..f_names.length)]
+#   random_l_name = l_names[rand(0..l_names.length)]
+#   @teacher = Teacher.create({
+#     "first_name" => random_f_name,
+#     "last_name" => random_l_name})
+#   puts random_f_name
+#   puts random_l_name
+#   end
+# puts Teacher.all 
 
 # course_prefix = ["Bus", "Fin", "Econ", "Acct", "Art", "Calc", "Math", "Geog", "Geol", "Ast", "Bio", "BusTec", "Chem", "Elect", "PolySci", "Eng", "Fire", "Hist", "Hort", "Hum", "IT", "Span", "Jour", "Mus", "Libr", "Coun", "Mkt", "Mgmt", "Nurs", "Psyc", "RE", "Spch", "Stat", "Anth", "Comm"]
 
@@ -58,14 +58,29 @@ puts Teacher.all
 # puts Course.all
 
 
-Student.all.each do |student|
-  Course.first(3).each do |course|
-    student.courses << course
-  end
+# x = 1
+
+# while x < Student.count
+#   student = Student.find_by(id: x)
+#   student.courses << Course.find(rand(2..51))
+#   student.courses << Course.find(rand(2..51))
+#   student.courses << Course.find(rand(2..51))
+#   x += 1
+#   puts student.courses
+# end
+
+
+y = 1
+z = 51
+
+while y < Teacher.count
+  teacher = Teacher.find_by(id: y)
+  teacher.courses << Course.find(y + 1)
+  teacher.courses << Course.find(z)
+  y += 1
+  z -= 1
+  puts teacher.courses
 end
 
-Student.all.each do |student|
-  Course.first(3).each do |course|
-    student.courses << course
-  end
-end
+
+
