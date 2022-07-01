@@ -74,11 +74,13 @@ y = 1
 z = 51
 
 while y < Teacher.count
-  teacher = Teacher.find_by(id: y)
-  teacher.courses << Course.find(y + 1)
-  teacher.courses << Course.find(z)
-  y += 1
-  z -= 1
+  if z > 0
+    teacher = Teacher.find_by(id: y)
+    teacher.courses << Course.find(y + 1)
+    teacher.courses << Course.find(z)
+    y += 1
+    z -= 1
+  end
   puts teacher.courses
 end
 
