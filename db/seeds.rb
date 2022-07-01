@@ -70,17 +70,17 @@ l_names = ["Donnelly", "Elrod", "Foust", "Griswold", "Simmons", "Milam", "Lance"
 # end
 
 
-y = 1
-z = 51
+# y = 1
+# z = 51
 
-while y < Teacher.count
-  teacher = Teacher.find_by(id: y)
-  teacher.courses << Course.find(y + 1)
-  teacher.courses << Course.find(z)
-  y += 1
-  z -= 1
-  puts teacher.courses
-end
+# while y < Teacher.count
+#   teacher = Teacher.find_by(id: y)
+#   teacher.courses << Course.find(y + 1)
+#   teacher.courses << Course.find(z)
+#   y += 1
+#   z -= 1
+#   puts teacher.courses
+# end
 
 
 
