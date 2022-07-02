@@ -43,7 +43,7 @@ course_array = []
 
 course = Course.all
 
-50.times do
+30.times do
   random_prefix = course_prefix[rand(0..course_prefix.length - 1)]
   random_suffix = course_suffix[rand(0..course_suffix.length - 1)]
   course_name = "#{random_prefix}#{random_suffix}"
@@ -71,15 +71,12 @@ end
 
 
 y = 1
-z = 51
 
 while y < Teacher.count
   if z > 0
     teacher = Teacher.find_by(id: y)
-    teacher.courses << Course.find(y + 1)
-    teacher.courses << Course.find(z)
+    teacher.courses << Course.find(y)
     y += 1
-    z -= 1
   end
   puts teacher.courses
 end
