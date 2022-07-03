@@ -77,6 +77,7 @@ while y <= Teacher.count
     # teacher.courses << Course.find(rand(1..Course.count))
     y += 1
   puts teacher.courses
+  puts teachers.courses
 end
 
 
