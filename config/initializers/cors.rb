@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:8080', 'courses-rb.herokuapp.com/', 'https://courses-vue.herokuapp.com/'
+    origins 'localhost:8080', 'courses-rb.herokuapp.com', 'https://courses-vue.herokuapp.com'
 
     resource '*',
       headers: :any,
