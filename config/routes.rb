@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post "/teachers" => "teachers#create"
     patch "/teachers/:id" => "teachers#update"
     delete "/teachers/:id" => "teachers#destroy"
+    post "/teachers/:id" => "teachers#assign_to_course"
 
     get "/students" => "students#index"
     get "/students/:id" => "students#show"

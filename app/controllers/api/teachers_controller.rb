@@ -39,6 +39,14 @@ class Api::TeachersController < ApplicationController
     end
     render json: true
   end
+
+  def assign_to_course
+    teacher_id = params[:id]&.to_i
+    course_id = params[:course_id]&.to_i
+
+    TeacherCourse.find_or_create_by({teacher_id: teacher_id, course_id: course_id})
+    render json: true
+  end
 end
 
 

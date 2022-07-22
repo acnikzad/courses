@@ -36,9 +36,8 @@ class Api::StudentsController < ApplicationController
 
     if @student.present?
       @student.destroy
-      @student.save
     end
-    render
+    render json: true
   end
 
   def assign_to_course
