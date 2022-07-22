@@ -19,12 +19,15 @@ Rails.application.routes.draw do
     post "/students" => "students#create"
     patch "/students/:id" => "students#update"
     delete "/students/:id" => "students#destroy"
+    post "/students/:id" => "students#assign_to_course"
 
     get "/courses" => "courses#index"
     get "/courses/:id" => "courses#show"
     post "/courses" => "courses#create"
     patch "/courses/:id" => "courses#update"
     delete "/courses/:id" => "courses#destroy"
+
+
 
     post "/sessions" => "sessions#create"
 

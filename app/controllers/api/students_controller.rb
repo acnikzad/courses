@@ -40,4 +40,13 @@ class Api::StudentsController < ApplicationController
     end
     render
   end
+
+  def assign_to_course
+    student_id = params[:id]&.to_i
+    course_id = params[:course_id]&.to_i
+
+    StudentCourse.find_or_create_by({student_id: student_id, course_id: course_id})
+    render json: true
+  end
+
 end

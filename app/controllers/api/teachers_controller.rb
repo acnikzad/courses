@@ -35,9 +35,12 @@ class Api::TeachersController < ApplicationController
     @teacher = Teacher.find_by(id: params[:id])
 
     if @teacher.present?
-      @teacher.destroy
-      @teacher.save
+      @teacher.destroy!
     end
-    render
+    render json: true
   end
 end
+
+
+#docker
+#cloudways
