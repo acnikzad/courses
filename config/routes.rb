@@ -28,7 +28,10 @@ Rails.application.routes.draw do
     patch "/courses/:id" => "courses#update"
     delete "/courses/:id" => "courses#destroy"
 
-
+    # get "/student_course" => "grades#index"
+    # get "/student_course/:id" => "grades#show"
+    # post "/student_course" => "grades#create"
+    # patch "/student_course/:id" => "grades#update"
 
     post "/sessions" => "sessions#create"
 

@@ -43,8 +43,9 @@ class Api::StudentsController < ApplicationController
   def assign_to_course
     student_id = params[:id]&.to_i
     course_id = params[:course_id]&.to_i
+    grade = params[:grade]&.to_i
 
-    StudentCourse.find_or_create_by({student_id: student_id, course_id: course_id})
+    StudentCourse.find_or_create_by({student_id: student_id, course_id: course_id, grade: grade})
     render json: true
   end
 
