@@ -64,13 +64,13 @@ while x <= Student.count
   student = Student.find_by(id: x)
 
   course = Course.find(rand(1..Course.count))
-  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(50..100)))
 
   course = Course.find(rand(1..Course.count))
-  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(50..100)))
 
   course = Course.find(rand(1..Course.count))
-  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(50..100)))
 
   x += 1
   puts student.courses
