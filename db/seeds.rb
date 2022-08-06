@@ -62,11 +62,25 @@ x = 1
 
 while x <= Student.count
   student = Student.find_by(id: x)
-  student.courses << Course.find(rand(1..Course.count))
-  student.courses << Course.find(rand(1..Course.count))
-  student.courses << Course.find(rand(1..Course.count))
+
+  course = Course.find(rand(1..Course.count))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+
+  course = Course.find(rand(1..Course.count))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+
+  course = Course.find(rand(1..Course.count))
+  StudentCourse.create!(student_id: student.id, course_id: course.id, grade: (rand(1..100)))
+
   x += 1
   puts student.courses
+
+  # student = Student.find_by(id: x)
+  # student.courses << Course.find(rand(1..Course.count))
+  # student.courses << Course.find(rand(1..Course.count))
+  # student.courses << Course.find(rand(1..Course.count))
+  # x += 1
+  # puts student.courses
 end
 
 
