@@ -49,4 +49,10 @@ class Api::StudentsController < ApplicationController
     render json: true
   end
 
+  def import
+    # get params[:file] / save params[:file] to temp file
+    # open temp file ... CSV.foreach
+    # loop through row data and insert records
+  end
+
 end

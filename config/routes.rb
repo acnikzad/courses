@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   # namespace :api do
   #   get "/photos" => "photos#index"
   # end
+  root to: redirect('\"/students')
+    resources :students do
+      collection do
+        post :import
+      end
+    end
 
    namespace :api do
     get "/teachers" => "teachers#index"
@@ -20,7 +26,9 @@ Rails.application.routes.draw do
     post "/students" => "students#create"
     patch "/students/:id" => "students#update"
     delete "/students/:id" => "students#destroy"
+    
     post "/students/:id" => "students#assign_to_course"
+    post "/students/import" => "students#import"
 
     get "/courses" => "courses#index"
     get "/courses/:id" => "courses#show"
