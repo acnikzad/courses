@@ -1,5 +1,7 @@
 class Api::StudentsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  require 'csv'
+  require 'tempfile'
   
   def index
     @students = Student.all
@@ -50,9 +52,11 @@ class Api::StudentsController < ApplicationController
   end
 
   def import
-    # get params[:file] / save params[:file] to temp file
-    # open temp file ... CSV.foreach
-    # loop through row data and insert records
+    binding.pry
+    CSV.foreach(params[:file].tempfile, headers: true) do |row|
+      StudentCourse.find_or_create_by({student_id: row['student_id'], course_id: row['course_id'], grade: row['grade']})
+    end
+    render json: true
   end
 
 end
