@@ -52,7 +52,7 @@ class Api::StudentsController < ApplicationController
   end
 
   def import
-    binding.pry
+    # binding.pry
     CSV.foreach(params[:file].tempfile, headers: true) do |row|
       StudentCourse.find_or_create_by({student_id: row['student_id'], course_id: row['course_id'], grade: row['grade']})
     end

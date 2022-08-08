@@ -60,4 +60,4 @@ gem "rack-cors"
 gem "jb"
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'roo'
-gem "pry"
+gem 'pry-rails', :group => :development
