@@ -47,9 +47,27 @@ class Api::StudentsController < ApplicationController
     course_id = params[:course_id]&.to_i
     grade = params[:grade]&.to_i
 
-    StudentCourse.find_or_create_by({student_id: student_id, course_id: course_id, grade: grade})
+    StudentCourse.find_or_create_by({
+      student_id: student_id,
+      course_id: course_id,
+      grade: grade})
     render json: true
   end
+
+  # student id 1
+  # enrolled courses id 10 11
+
+  # def update_grades
+  #   student_id = params[:id]&.to_i 1
+  #   course_id = params[:course_id]&.to_i 10
+  #   grade = params[:grade]&.to_i 90
+
+  #    @student_course = Student_course.update(student_id: student_id, course_id: course_id)
+
+  #    @student_course.grade = params[:grade] || @student_course.grade
+  #    @student_course.save
+  #    render json: true
+  # end
 
   def import
     # binding.pry

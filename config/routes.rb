@@ -23,8 +23,7 @@ Rails.application.routes.draw do
     delete "/students/:id" => "students#destroy"
     post "/students/:id" => "students#assign_to_course"
 
-  
-
+    
     get "/courses" => "courses#index"
     get "/courses/:id" => "courses#show"
     post "/courses" => "courses#create"
