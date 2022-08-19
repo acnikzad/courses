@@ -19,9 +19,9 @@ Rails.application.routes.draw do
     get "/students/:id" => "students#show"
     post "/students" => "students#create"
     post "/students/import" => "students#import"
+    post "/students/:id" => "students#assign_to_course"
     patch "/students/:id" => "students#update"
     delete "/students/:id" => "students#destroy"
-    post "/students/:id" => "students#assign_to_course"
 
     
     get "/courses" => "courses#index"
